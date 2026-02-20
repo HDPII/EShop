@@ -2,4 +2,13 @@
     <string name="app_name">EShop</string>
     <string name="app_version">v 1.0.0</string>
     <string name="app_copy">"@ JIAT APP"</string>
+    <string name="side_nav_home_tittle">Home</string>
+    <string name="side_nav_profile_tittle">Profile</string>
+    <string name="side_nav_orders_tittle">Orders</string>
+    <string name="side_nav_wishlist_tittle">Wishlist</string>
+    <string name="side_nav_cart_tittle">Cart</string>
+    <string name="side_nav_message_tittle">Message</string>
+    <string name="side_nav_setting_tittle">Setting</string>
+    <string name="side_nav_login_tittle">Login</string>
+    <string name="side_nav_logout_tittle">Logout</string>
 </resources>
