@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EShop</string>
+    <string name="app_version">v 1.0.0</string>
+    <string name="app_copy">"@ JIAT APP"</string>
 </resources>
