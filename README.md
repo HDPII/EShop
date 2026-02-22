@@ -22,3 +22,25 @@ The development of the EShop Android application has started. Day 01 focused on 
 * `MainActivity.java` & `activity_main.xml`
 * `side_nav_menu.xml` (Navigation drawer menu items)
 * `build.gradle` & `libs.versions.toml` (Added Glide and Picasso dependencies)
+
+##
+## Day 02 Progress (2026-02-14)
+
+Today's development focused on completing the navigation components and structuring the main user interface.
+
+### ✨ Features Implemented
+* **Side Navigation Drawer**: 
+  * Successfully implemented the side navigation menu using `NavigationView` and `DrawerLayout`.
+  * Created a custom header (`side_nav_header.xml`) displaying the user's profile image, name, and email address.
+  * Added relevant vector icons to all menu items (Home, Profile, Orders, Wishlist, Cart, Message, Settings, Login, and Logout) in `side_nav_menu.xml`.
+* **Bottom Navigation Bar**: 
+  * Designed and integrated a `BottomNavigationView` into the main layout for quick access to primary sections of the app.
+* **Main Screen UI Enhancements**:
+  * Structured `activity_main.xml` to seamlessly house both the side navigation drawer and the bottom navigation bar.
+  * Added a `MaterialToolbar` with a custom-styled search bar (`EditText`) at the top of the main screen.
+  * Set up a `FragmentContainerView` to handle future fragment transactions between the navigation bars.
+
+### 📁 Key Files Created/Updated
+* `activity_main.xml` (Structured with DrawerLayout, Bottom Navigation, Search Bar, and Toolbar)
+* `side_nav_header.xml` (New custom header for the side menu)
+* `side_nav_menu.xml` (Updated with menu item icons)
