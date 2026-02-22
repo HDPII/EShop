@@ -11,4 +11,9 @@
     <string name="side_nav_setting_tittle">Setting</string>
     <string name="side_nav_login_tittle">Login</string>
     <string name="side_nav_logout_tittle">Logout</string>
+    <string name="bottom_nave_home_tittle">Home</string>
+    <string name="bottom_nav_category_tittle">list</string>
+    <string name="bottom_nav_cart_tittle">Cart</string>
+    <string name="bottom_nav_profile_tittle">Profile</string>
+    <string name="search_hint">Search here</string>
 </resources>

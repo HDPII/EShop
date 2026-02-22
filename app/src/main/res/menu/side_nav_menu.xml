@@ -2,18 +2,37 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group>
-        <item android:title="@string/side_nav_home_tittle" />
-        <item android:title="@string/side_nav_profile_tittle" />
-        <item android:title="@string/side_nav_orders_tittle" />
-        <item android:title="@string/side_nav_wishlist_tittle" />
-        <item android:title="@string/side_nav_cart_tittle" />
-        <item android:title="@string/side_nav_message_tittle" />
-        <item android:title="@string/side_nav_setting_tittle" />
+        <item
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/side_nav_home_tittle" />
+        <item
+            android:icon="@drawable/account_circle_24px"
+            android:title="@string/side_nav_profile_tittle" />
+        <item
+            android:icon="@drawable/orders_24px"
+            android:title="@string/side_nav_orders_tittle" />
+        <item
+            android:icon="@drawable/favorite_24px"
+            android:title="@string/side_nav_wishlist_tittle" />
+        <item
+            android:icon="@drawable/shopping_cart_24px"
+            android:title="@string/side_nav_cart_tittle" />
+        <item
+            android:icon="@drawable/chat_24px"
+            android:title="@string/side_nav_message_tittle"
+            android:checked="true"/>
+        <item
+            android:icon="@drawable/settings_24px"
+            android:title="@string/side_nav_setting_tittle" />
     </group>
 
     <group>
-        <item android:title="@string/side_nav_login_tittle"/>
-        <item android:title="@string/side_nav_logout_tittle"/>
+        <item
+            android:icon="@drawable/login_24px"
+            android:title="@string/side_nav_login_tittle"/>
+        <item
+            android:icon="@drawable/logout_24px"
+            android:title="@string/side_nav_logout_tittle"/>
     </group>
 
 </menu>

@@ -23,8 +23,8 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.EShop.FullScreen"/>
+            android:exported="true"/>
+
         <activity
             android:name=".activity.MainActivity2"
             android:exported="true"/>
