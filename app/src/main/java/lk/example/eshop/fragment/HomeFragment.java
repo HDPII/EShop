@@ -1,4 +1,4 @@
-package fragment;
+package lk.example.eshop.fragment;
 
 import android.os.Bundle;
 

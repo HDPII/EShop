@@ -27,4 +27,5 @@
     <string name="text_create_account">or, create a new account?</string>
     <string name="SignUp_tittle">Join Eshop</string>
     <string name="text_signin_account">Already have an account ?</string>
+    <string name="text_password_message">Password must contain at least 6 characters</string>
 </resources>

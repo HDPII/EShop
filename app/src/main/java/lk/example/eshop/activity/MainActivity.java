@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -26,19 +25,23 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
-import fragment.CartFragment;
-import fragment.CategoryFragment;
-import fragment.HomeFragment;
-import fragment.MessageFragment;
-import fragment.OrdersFragment;
-import fragment.ProfileFragment;
-import fragment.SettingFragment;
-import fragment.WishlistFragment;
+import lk.example.eshop.databinding.ActivityMainBinding;
+import lk.example.eshop.databinding.SideNavHeaderBinding;
+import lk.example.eshop.fragment.CartFragment;
+import lk.example.eshop.fragment.CategoryFragment;
+import lk.example.eshop.fragment.HomeFragment;
+import lk.example.eshop.fragment.MessageFragment;
+import lk.example.eshop.fragment.OrdersFragment;
+import lk.example.eshop.fragment.ProfileFragment;
+import lk.example.eshop.fragment.SettingFragment;
+import lk.example.eshop.fragment.WishlistFragment;
 import lk.example.eshop.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, NavigationBarView.OnItemSelectedListener {
 
+    private ActivityMainBinding binding;
+    private SideNavHeaderBinding sideNavHeaderBinding;
     private DrawerLayout drawerLayout;
     private MaterialToolbar toolbar ;
     private NavigationView navigationView;
@@ -48,13 +51,20 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.side_navigation_view);
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        View headerView = binding.sideNavigationView.getHeaderView(0);
+        sideNavHeaderBinding = SideNavHeaderBinding.bind(headerView);
+
+        sideNavHeaderBinding.headerProfilePic.setImageResource(R.drawable.app_logo);
+
+        EdgeToEdge.enable(this);
+
+        drawerLayout = binding.drawerLayout;
+        toolbar = binding.toolbar;
+        navigationView = binding.sideNavigationView;
+        bottomNavigationView = binding.bottomNavigationView;
 
         setSupportActionBar(toolbar);
 
