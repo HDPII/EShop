@@ -44,3 +44,30 @@ Today's development focused on completing the navigation components and structur
 * `activity_main.xml` (Structured with DrawerLayout, Bottom Navigation, Search Bar, and Toolbar)
 * `side_nav_header.xml` (New custom header for the side menu)
 * `side_nav_menu.xml` (Updated with menu item icons)
+
+##
+## Day 03 Progress (2026-02-17)
+
+Today's focus was on bringing the navigation UI to life by implementing Fragment transactions and synchronizing the navigation components.
+
+### ✨ Features Implemented
+* **Fragment Integration**: 
+  * Created individual Fragments and their corresponding layout files for all main application screens (`HomeFragment`, `CategoryFragment`, `CartFragment`, `ProfileFragment`, `OrdersFragment`, `WishlistFragment`, `MessageFragment`, and `SettingFragment`).
+  * Implemented `FragmentManager` and `FragmentTransaction` within `MainActivity` to dynamically swap these fragments inside the `FragmentContainerView` when a user navigates.
+* **Navigation Synchronization**: 
+  * Developed logic to synchronize the active state between the Side Navigation Drawer and the Bottom Navigation Bar. 
+  * If a user selects "Cart" on the bottom bar, the "Cart" item in the side drawer automatically highlights, ensuring a consistent user experience.
+* **Theme-Aware Selection States**: 
+  * Configured the navigation menus (`checkableBehavior`) and color states so that the selected menu items correctly highlight according to the app's theme colors.
+* **Default Screen Routing**: 
+  * Set up `HomeFragment` to load automatically as the default screen when the application launches.
+
+### 📁 Key Files Created/Updated
+* `MainActivity.java` (Added `OnNavigationItemSelectedListener`, Fragment routing, and menu state synchronization logic)
+* Created new Fragment Classes & Layouts:
+  * `HomeFragment.java` / `fragment_home.xml`
+  * `CartFragment.java` / `fragment_cart.xml`
+  * `ProfileFragment.java` / `fragment_profile.xml`
+  * `CategoryFragment.java` / `fragment_category.xml`
+  * *...and other respective fragments.*
+* `side_nav_menu.xml` & `bottom_nav_menu.xml` (Updated IDs and checkable attributes for state syncing)
