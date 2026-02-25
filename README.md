@@ -71,3 +71,26 @@ Today's focus was on bringing the navigation UI to life by implementing Fragment
   * `CategoryFragment.java` / `fragment_category.xml`
   * *...and other respective fragments.*
 * `side_nav_menu.xml` & `bottom_nav_menu.xml` (Updated IDs and checkable attributes for state syncing)
+
+  ##
+  ## Day 04 Progress (2026-02-18)
+
+Today's focus was on the authentication flow, specifically designing and implementing the Sign-In and Sign-Up screens and managing the navigation between them.
+
+### ✨ Features Implemented
+* **Authentication UI Design**:
+  * Designed a clean and user-friendly `activity_sign_in.xml` layout, including input fields for Email and Password, a "Forgot Password" option, and a primary "Sign In" button.
+  * Designed the `activity_sign_up.xml` layout to gather new user details, including Name, Email, Password, and Password confirmation, ensuring consistent styling with the app's theme.
+* **Authentication Flow Navigation**:
+  * Configured `SignInActivity.java` to navigate to the `SignUpActivity` when the "Sign Up" text/button is clicked.
+  * Configured `SignUpActivity.java` to navigate back to the `SignInActivity` when the "Sign In" text/button is clicked.
+  * Used `finish()` appropriately to manage the activity back stack during these transitions.
+* **Main Menu Integration**:
+  * Updated `MainActivity.java` to launch the `SignInActivity` when the user selects the "Login" option from the side navigation drawer.
+  * Ensured the side navigation drawer closes automatically after making a selection.
+
+### 📁 Key Files Created/Updated
+* `SignInActivity.java` & `activity_sign_in.xml` (New Sign-In screen logic and layout)
+* `SignUpActivity.java` & `activity_sign_up.xml` (New Sign-Up screen logic and layout)
+* `MainActivity.java` (Updated routing to the Sign-In screen)
+* `side_nav_menu.xml` (Confirmed visibility of Login/Logout items based on auth state)
