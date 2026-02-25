@@ -20,4 +20,11 @@
     <string name="drawer_close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Login_tittle">login to Eshop</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="text_sign_in">Sign in</string>
+    <string name="text_sign_up">Sign Up</string>
+    <string name="text_create_account">or, create a new account?</string>
+    <string name="SignUp_tittle">Join Eshop</string>
+    <string name="text_signin_account">Already have an account ?</string>
 </resources>

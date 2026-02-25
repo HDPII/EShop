@@ -1,6 +1,8 @@
 package lk.example.eshop.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -102,7 +104,16 @@ public class MainActivity extends AppCompatActivity
 
         int itemId = item.getItemId();
 
-        navigationView.setCheckedItem(-1);
+        Menu naMenu = navigationView.getMenu();
+        Menu bottomnavMenu = bottomNavigationView.getMenu();
+
+        for (int i = 0; i < naMenu.size(); i++) {
+            naMenu.getItem(i).setChecked(false);
+        }
+
+        for (int i = 0; i < bottomnavMenu.size(); i++) {
+            bottomnavMenu.getItem(i).setChecked(false);
+        }
 
         if (itemId == R.id.side_nav_home || itemId == R.id.bottom_nav_home) {
             loadFragment(new HomeFragment());
@@ -145,6 +156,9 @@ public class MainActivity extends AppCompatActivity
             bottomNavigationView.getMenu().findItem(R.id.bottom_nav_category).setChecked(true);
 
         } else if (itemId == R.id.side_nav_login) {
+
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+            startActivity(intent);
 
         } else if (itemId == R.id.side_nav_logout) {
 

@@ -51,7 +51,7 @@
             android:id="@+id/side_nav_login"
             android:icon="@drawable/login_24px"
             android:title="@string/side_nav_login_tittle"
-            android:visible="false"/>
+            android:visible="true"/>
         <item
             android:id="@+id/side_nav_logout"
             android:icon="@drawable/logout_24px"
