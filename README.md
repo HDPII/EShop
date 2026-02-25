@@ -94,3 +94,29 @@ Today's focus was on the authentication flow, specifically designing and impleme
 * `SignUpActivity.java` & `activity_sign_up.xml` (New Sign-Up screen logic and layout)
 * `MainActivity.java` (Updated routing to the Sign-In screen)
 * `side_nav_menu.xml` (Confirmed visibility of Login/Logout items based on auth state)
+
+##
+## Day 05 Progress (2026-02-19)
+
+Today's development focused on integrating a backend using Firebase to make the authentication flow fully functional, including user registration, login, and data storage.
+
+### ✨ Features Implemented
+* **Firebase Integration**: 
+  * Successfully connected the application to Firebase.
+  * [cite_start]Added dependencies for Firebase BoM, Firebase Authentication, and Firebase Firestore to manage users and database records[cite: 3].
+* **User Registration (Sign Up)**:
+  * Implemented strict input validation to ensure data integrity (checking for empty fields, valid email formats, minimum password length of 6 characters, and matching passwords).
+  * Utilized Firebase Auth (`createUserWithEmailAndPassword`) to securely register new users.
+  * Configured Cloud Firestore to automatically save additional user details (UID, Name, Email) into a "users" collection upon successful registration.
+* **User Authentication (Sign In)**:
+  * Implemented input validation for the login fields.
+  * Used Firebase Auth (`signInWithEmailAndPassword`) to authenticate returning users and smoothly redirect them to the `MainActivity` upon a successful login.
+* **Data Modeling with Lombok**:
+  * Created a `User` model class to handle user data.
+  * Integrated the `Lombok` library (`@Data`, `@Builder`, `@AllArgsConstructor`, `@NoArgsConstructor`) to reduce boilerplate code and easily build user objects for Firestore.
+
+### 📁 Key Files Created/Updated
+* [cite_start]`build.gradle` (Added Firebase BoM, Auth, Firestore, and Lombok dependencies) [cite: 3]
+* `SignUpActivity.java` (Integrated Firebase Auth, Firestore saving logic, and input validations)
+* `SignInActivity.java` (Integrated Firebase Auth login logic and input validations)
+* `User.java` (New model class utilizing Lombok for Firestore database operations)
