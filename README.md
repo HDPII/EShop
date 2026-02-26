@@ -120,3 +120,32 @@ Today's development focused on integrating a backend using Firebase to make the 
 * `SignUpActivity.java` (Integrated Firebase Auth, Firestore saving logic, and input validations)
 * `SignInActivity.java` (Integrated Firebase Auth login logic and input validations)
 * `User.java` (New model class utilizing Lombok for Firestore database operations)
+
+##
+## Day 06 Progress (2026-02-20)
+
+Today's focus was on finalizing the authentication state integration and building the core product discovery features, specifically fetching and displaying product categories and their respective listings from Firebase Firestore.
+
+### ✨ Features Implemented
+* **User Authentication State & Profile Display**:
+  * Updated `MainActivity` to fetch and display the logged-in user's data (Name, Email, and Profile Picture via Glide) in the side navigation header.
+  * Introduced a custom circular shape style (`@style/Circleimage`) for the profile picture in the navigation header.
+  * Navigation menu items (Login, Logout, Profile, Cart, etc.) now dynamically update their visibility based on the user's current authentication status.
+* **Category Display**:
+  * Created the `Category` model class using Lombok.
+  * Developed the `CategoryFragment` to display a grid of product categories fetched dynamically from the Firestore `categories` collection.
+  * Added `CategoryAdapter` to manage the `RecyclerView` for categories, alongside a custom `item_category.xml` layout for individual category items.
+* **Product Listing**:
+  * Created the `Product` model class.
+  * Developed the `ListingFragment` to show products dynamically based on the category selected by the user.
+  * Added `ListingAdapter` and `item_listing.xml` to manage and display the product list view in a structured grid.
+* **UI/UX Enhancements**:
+  * Added a custom click animation (`R.anim.click_animation`) to list items (categories and products) to provide interactive visual feedback when a user clicks on them.
+
+### 📁 Key Files Created/Updated
+* **UI & Logic Updated**: `MainActivity.java`
+* **New Models**: `Category.java`, `Product.java` 
+* **New Fragments**: `CategoryFragment.java`, `ListingFragment.java` 
+* **New Adapters**: `CategoryAdapter.java`, `ListingAdapter.java` 
+* **New Layouts**: `item_category.xml`, `item_listing.xml`, `fragment_category.xml`, `fragment_listing.xml`
+* **Updated Layouts**: `side_nav_header.xml`, `side_nav_menu.xml`
