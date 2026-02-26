@@ -52,4 +52,9 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Circleimage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>
