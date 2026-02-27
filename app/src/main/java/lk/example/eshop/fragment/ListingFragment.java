@@ -87,6 +87,12 @@ public class ListingFragment extends Fragment {
                         List<Product> products = ds.toObjects(Product.class);
                         adapter = new ListingAdapter(products, product -> {
                             // Click listener code
+
+                            getParentFragmentManager().beginTransaction()
+                                    .replace(R.id.container , new ProductDeatailsFragment())
+                                    .addToBackStack(null)
+                                    .commit();
+
                         });
 
                         binding.recyclerViewListing.setAdapter(adapter);
