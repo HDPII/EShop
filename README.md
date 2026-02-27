@@ -174,3 +174,28 @@ Today's development focused on enhancing the product discovery experience by imp
 * **Updated Logic**: `ListingFragment.java` (Added Firestore queries & back-press handling), `CategoryFragment.java` (Fixed navigation routing)
 * **Updated Adapters**: `ListingAdapter.java` (Currency formatting)
 * **Updated Layouts**: `item_listing.xml` (Card UI adjustments)
+
+##
+## Day 08 Progress (2026-02-23)
+
+Today's focus was on implementing the Product Details screen to provide users with comprehensive information about a selected product, including an interactive image gallery.
+
+### ✨ Features Implemented
+* **Product Details Screen**:
+  * Created the `ProductDeatailsFragment` to dynamically fetch and display detailed product information (title, price, rating, and available quantity) directly from Firebase Firestore using the specific `productId`.
+  * Designed a comprehensive UI in `fragment_product_deatails.xml` featuring a clean layout, quantity selector, and persistent "Add to Cart" and "Buy Now" buttons.
+* **Swipeable Image Gallery**:
+  * Integrated a `ViewPager2` along with a `DotsIndicator` to create a modern, swipeable product image slider.
+  * Developed the `ProductSliderAdapter` and `product_slider_item.xml` to load multiple product images efficiently using the Glide library.
+* **Navigation & UI State Management**:
+  * Updated the `ListingFragment` to detect user clicks on individual products and smoothly navigate to the `ProductDeatailsFragment`, passing the `productId` as an argument.
+  * Configured the `ProductDeatailsFragment` to temporarily hide the `BottomNavigationView` (`View.GONE`) upon entering, ensuring a focused full-screen viewing experience, and restore it upon exiting.
+* **Model Enhancements**:
+  * Updated the `Product` model class to include a `rating` field (`float`), allowing the app to store and display product ratings effectively.
+
+### 📁 Key Files Created/Updated
+* **New Fragments**: `ProductDeatailsFragment.java`
+* **New Adapters**: `ProductSliderAdapter.java`
+* **New Layouts**: `fragment_product_deatails.xml`, `product_slider_item.xml`
+* **Updated Logic**: `ListingFragment.java` (Added navigation and click handling to details screen)
+* **Updated Models**: `Product.java` (Added `rating` attribute)
