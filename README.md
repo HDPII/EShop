@@ -149,3 +149,28 @@ Today's focus was on finalizing the authentication state integration and buildin
 * **New Adapters**: `CategoryAdapter.java`, `ListingAdapter.java` 
 * **New Layouts**: `item_category.xml`, `item_listing.xml`, `fragment_category.xml`, `fragment_listing.xml`
 * **Updated Layouts**: `side_nav_header.xml`, `side_nav_menu.xml`
+
+##
+## Day 07 Progress (2026-02-21)
+
+Today's development focused on enhancing the product discovery experience by implementing a dynamic product listing based on category selection and laying the groundwork for the product details screen.
+
+### ✨ Features Implemented
+* **Dynamic Product Listing**:
+  * Implemented the `ListingFragment` to query Firebase Firestore and display products that match the specifically selected category ID.
+  * Configured Firestore composite indexes to ensure efficient querying and sorting of the product database.
+* **Navigation & State Management**:
+  * Integrated an `OnBackPressedCallback` in the `ListingFragment` to handle custom back navigation, ensuring users return smoothly to the Category view instead of exiting the application.
+  * Fixed a bug in the `CategoryFragment` by updating the target fragment container ID (`R.id.container`), ensuring proper transitions without overlapping the Bottom Navigation Bar.
+* **UI & Data Presentation Updates**:
+  * Enhanced the visual presentation of individual product cards in `item_listing.xml` (e.g., adjusting the MaterialCardView dimensions and text alignments).
+  * Updated the `ListingAdapter` to dynamically format the product price by appending the "LKR" currency prefix.
+* **Product Details Initialization**:
+  * Created the foundational `ProductDeatailsFragment` and its corresponding layout (`fragment_product_deatails.xml`) to prepare for displaying in-depth product information in the next phase.
+
+### 📁 Key Files Created/Updated
+* **New Fragments**: `ProductDeatailsFragment.java`
+* **New Layouts**: `fragment_product_deatails.xml`
+* **Updated Logic**: `ListingFragment.java` (Added Firestore queries & back-press handling), `CategoryFragment.java` (Fixed navigation routing)
+* **Updated Adapters**: `ListingAdapter.java` (Currency formatting)
+* **Updated Layouts**: `item_listing.xml` (Card UI adjustments)
