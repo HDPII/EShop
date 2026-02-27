@@ -10,7 +10,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         app:cardBackgroundColor="@color/md_theme_secondary">
 
         <ImageView
@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/list_item_name"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:text="Toys"
         android:layout_marginTop="10dp"
         android:textAlignment="center"

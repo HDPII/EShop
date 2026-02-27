@@ -90,7 +90,7 @@ public class CategoryFragment extends Fragment {
                             fragment.setArguments(bundle);
 
                             getParentFragmentManager().beginTransaction()
-                                    .replace(R.id.fragment_container,fragment)
+                                    .replace(R.id.container,fragment)
                                     .addToBackStack(null)
                                     .commit();
 
