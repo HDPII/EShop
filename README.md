@@ -199,3 +199,29 @@ Today's focus was on implementing the Product Details screen to provide users wi
 * **New Layouts**: `fragment_product_deatails.xml`, `product_slider_item.xml`
 * **Updated Logic**: `ListingFragment.java` (Added navigation and click handling to details screen)
 * **Updated Models**: `Product.java` (Added `rating` attribute)
+
+##
+## Day 09 Progress  (2026-02-24)
+
+Today's development significantly upgraded the user experience on both the Product Details and Home screens, adding dynamic interactions, attribute selections, and cross-product discovery.
+
+### ✨ Features Implemented
+* **Enhanced Product Details Screen**:
+  * Implemented an interactive quantity selector allowing users to dynamically increase or decrease item counts within the available stock limits using functional plus/minus buttons.
+  * Added dynamic rendering for product attributes (such as color and size) using Material `ChipGroup` components, intelligently applying actual visual color codes to the chips when the attribute type is set to "color".
+  * Integrated a "Top Selling Products" horizontal scrolling section at the bottom of the details page to improve product discovery, specifically configured to exclude the currently viewed product from this recommended list.
+* **Dynamic Home Screen**:
+  * Replaced the static placeholder layout on the Home screen with a fully functional "Top Selling Products" section.
+  * Fetched product data directly from Firebase Firestore and displayed it smoothly using a horizontally oriented `RecyclerView`.
+* **Reusable UI Components**:
+  * Created the `SectionAdapter` and corresponding modular layout files (`item_section.xml`, `item_product_recycler.xml`) to easily reuse the horizontal product scrolling views across multiple screens (like Home and Product Details).
+* **Data Model Upgrades**:
+  * Updated the `Product` model class to include a nested `Attribute` class for handling variations like size and color arrays.
+  * Introduced a new `CartItem` model class, complete with Firestore `@Exclude` annotations for document IDs, laying the crucial groundwork for the upcoming shopping cart implementation.
+
+### 📁 Key Files Created/Updated
+* **New Models**: `CartItem.java`
+* **Updated Models**: `Product.java`
+* **New Adapters**: `SectionAdapter.java`
+* **Updated Fragments**: `ProductDeatailsFragment.java`, `HomeFragment.java`, `ListingFragment.java`
+* **New/Updated Layouts**: `fragment_product_deatails.xml`, `fragment_home.xml`, `item_section.xml`, `item_product_recycler.xml`
