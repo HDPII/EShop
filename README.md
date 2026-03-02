@@ -225,3 +225,30 @@ Today's development significantly upgraded the user experience on both the Produ
 * **New Adapters**: `SectionAdapter.java`
 * **Updated Fragments**: `ProductDeatailsFragment.java`, `HomeFragment.java`, `ListingFragment.java`
 * **New/Updated Layouts**: `fragment_product_deatails.xml`, `fragment_home.xml`, `item_section.xml`, `item_product_recycler.xml`
+
+##
+## Day 10 & 11 Progress (2026-02-25 / 2026-02-26)
+
+Over the last two days, the focus was on implementing the complete e-commerce transaction flow, from adding items to the shopping cart to placing a final order, with robust Firebase Firestore integration.
+
+### ✨ Features Implemented
+* **Shopping Cart Management**:
+  * Integrated "Add to Cart" functionality on the product details screen, which checks the user's authentication status and saves the selected product, quantity, and specific attributes directly to the user's `cart` subcollection in Firestore.
+  * Implemented the `CartFragment` and `CartAdapter` to dynamically fetch and display the user's cart items using an interactive `RecyclerView`.
+  * Enabled dynamic cart updates allowing users to increase or decrease item quantities (within available stock limits) or completely remove items, syncing all changes directly to the Firestore database.
+  * Added logic to automatically query product prices and calculate the accurate total cart amount in real-time.
+* **Checkout & Order Placement Flow**:
+  * Developed the `CheckoutFragment` featuring collapsible, structured UI sections for capturing Shipping and Billing details (with an option to use the shipping address as the billing address).
+  * Implemented a dynamic order summary that calculates the cart subtotal, adds a fixed shipping cost, and displays the final total amount.
+  * Built the final order placement logic that compiles user details, shipping/billing addresses, and all cart items into an `Order` object, securely saving it to the `orders` collection in Firestore.
+* **Data Models & UI Assets**:
+  * Created the comprehensive `Order` model, including nested `OrderItem` and `Address` classes to neatly structure complex transaction data for Firebase.
+  * Utilized the `CartItem` model with `@Exclude` annotations on the document ID to efficiently manage Firestore document references.
+  * Added custom vector assets (like delete icons and drop-down arrows) for improved UI interactions within the cart and checkout screens.
+
+### 📁 Key Files Created/Updated
+* **New Models**: `Order.java`
+* **New Fragments**: `CartFragment.java`, `CheckoutFragment.java`
+* **New Adapters**: `CartAdapter.java`
+* **Updated Logic**: `ProductDeatailsFragment.java` (Integrated cart saving logic)
+* **New Layouts**: `fragment_cart.xml`, `fragment_checkout.xml`, `item_cart.xml`
