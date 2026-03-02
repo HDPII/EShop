@@ -1,5 +1,6 @@
 package lk.example.eshop.fragment;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,10 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -29,6 +32,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 import lk.example.eshop.R;
+import lk.example.eshop.activity.SignInActivity;
 import lk.example.eshop.adapter.ProductSliderAdapter;
 import lk.example.eshop.adapter.SectionAdapter;
 import lk.example.eshop.databinding.FragmentProductDeatailsBinding;
@@ -131,6 +135,33 @@ public class ProductDeatailsFragment extends Fragment {
         });
 
         loadTopSellProduct();
+
+        binding.productDetailsBtnAddCart.setOnClickListener(v -> {
+
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            if (firebaseAuth.getCurrentUser() == null) {
+                Intent intent = new Intent(getActivity(), SignInActivity.class);
+                startActivity(intent);
+            } else {
+
+                List<CartItem.Attribute> attributes = getFinalSelections();
+
+                CartItem cartItem = new CartItem(productId, quantity, attributes);
+
+                String uid = firebaseAuth.getCurrentUser().getUid();
+
+                db.collection("users").document(uid).collection("cart").document()
+                        .set(cartItem)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(getContext(), "Item added to cart!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+
+
+        });
 
     }
 
