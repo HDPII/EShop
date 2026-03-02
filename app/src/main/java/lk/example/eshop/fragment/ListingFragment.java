@@ -86,13 +86,17 @@ public class ListingFragment extends Fragment {
                     if (!ds.isEmpty()){
                         List<Product> products = ds.toObjects(Product.class);
                         adapter = new ListingAdapter(products, product -> {
-                            // Click listener code
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString("productId", product.getProductId());
+
+                            ProductDeatailsFragment detailsFragment = new ProductDeatailsFragment();
+                            detailsFragment.setArguments(bundle);
 
                             getParentFragmentManager().beginTransaction()
-                                    .replace(R.id.container , new ProductDeatailsFragment())
+                                    .replace(R.id.container, detailsFragment)
                                     .addToBackStack(null)
                                     .commit();
-
                         });
 
                         binding.recyclerViewListing.setAdapter(adapter);

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ProductDeatailsFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/product_details_bottom_bar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,18 +20,18 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/product_image_slider"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="300dp"/>
 
-                        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-                            android:id="@+id/dotsIndicator"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            app:dotsColor="#000000"
-                            app:selectedDotColor="@color/md_theme_primary"
-                            app:dotsSize="8dp"
-                            app:dotsSpacing="4dp"/>
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dotsIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                app:dotsColor="#000000"
+                app:selectedDotColor="@color/md_theme_primary"
+                app:dotsSize="8dp"
+                app:dotsSpacing="4dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,6 +74,11 @@
                 android:padding="16dp">
 
                 <!-- Need to complete -->
+                <LinearLayout
+                    android:id="@+id/product_details_attribute_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
 
 
                 <TextView
@@ -88,9 +95,9 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/product_details_btn_minus"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/circle_shape"
                         android:text="-"
                         android:textSize="16sp" />
 
@@ -105,9 +112,9 @@
                         android:textSize="16sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/product_details_btn_plus"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/circle_shape"
                         android:text="+"
                         android:textSize="16sp" />
 
@@ -124,26 +131,23 @@
                         android:layout_marginStart="5dp" />
 
                 </LinearLayout>
-
-
             </LinearLayout>
 
-            <FrameLayout
+            <include
+                android:id="@+id/product_details_top_sell_section"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:background="@color/md_theme_secondary">
-
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                layout="@layout/item_section"/>
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
+        android:id="@+id/product_details_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -171,6 +175,4 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-
 </RelativeLayout>
