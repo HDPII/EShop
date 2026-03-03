@@ -252,3 +252,27 @@ Over the last two days, the focus was on implementing the complete e-commerce tr
 * **New Adapters**: `CartAdapter.java`
 * **Updated Logic**: `ProductDeatailsFragment.java` (Integrated cart saving logic)
 * **New Layouts**: `fragment_cart.xml`, `fragment_checkout.xml`, `item_cart.xml`
+
+##
+## Day 12 Progress (2026-02-27)
+
+Today's major milestone was the successful integration of a third-party payment gateway and finalizing the complete checkout lifecycle, including order persistence and cart management.
+
+### ✨ Features Implemented
+* **PayHere Payment Gateway Integration**:
+  * Integrated the PayHere Android SDK to securely process payments within the app.
+  * Configured the `InitRequest` to dynamically map the calculated total amount, generated order ID, and user shipping details directly into the PayHere Sandbox environment for testing.
+  * Implemented an `ActivityResultLauncher` to actively listen for and handle payment success, cancellation, or failure responses from the PayHere gateway.
+* **Order Placement & Database Persistence**:
+  * Upon a successful payment response, the app automatically constructs a comprehensive `Order` object containing user details, shipping/billing addresses, structured cart items, and a Firebase `Timestamp`.
+  * Successfully pushed the generated order document directly to the Firestore `orders` collection.
+* **Post-Payment Lifecycle**:
+  * Implemented automated cart clearing: Once an order is successfully placed, the app queries and deletes all items within the user's active `cart` subcollection in Firestore.
+  * Added smooth UX transitions to redirect the user back to the `HomeFragment` after a successful checkout.
+* **Model Updates**:
+  * Upgraded the `Order` model to utilize `com.google.firebase.Timestamp` for the `orderDate` field, ensuring accurate and timezone-independent record keeping.
+
+### 📁 Key Files Created/Updated
+* **Updated Logic**: `CheckoutFragment.java` (PayHere SDK integration, order saving, and cart clearing logic)
+* **Updated Models**: `Order.java` (Integrated Firebase Timestamp)
+* **Updated Layouts**: `fragment_checkout.xml` (Finalized UI bindings for the payment trigger)
