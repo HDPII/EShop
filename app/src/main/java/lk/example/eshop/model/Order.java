@@ -1,5 +1,7 @@
 package lk.example.eshop.model;
 
+import com.google.firebase.Timestamp;
+
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +18,7 @@ public class Order {
     private String userId;
     private double totalAmount;
     private String status;
-    private long orderDate;
+    private Timestamp orderDate;
     private List<OrderItem> orderItems;
     private Address shippingAddress;
     private Address billingAddress;
