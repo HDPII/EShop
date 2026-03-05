@@ -60,6 +60,8 @@ dependencies {
 
     implementation(libs.firebase.firestore)
 
+    implementation(libs.firebase.storage)
+
     implementation(libs.dotsindicator)
 
     implementation libs.payhere.android.sdk

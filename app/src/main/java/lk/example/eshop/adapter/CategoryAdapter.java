@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.List;
 
@@ -22,11 +23,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     private List<Category> categories;
     private OnCategoryClickListener listener;
+    private FirebaseStorage storage;
+
 
 
     public CategoryAdapter(List<Category> categories , OnCategoryClickListener listener) {
         this.categories = categories;
         this.listener = listener;
+        storage = FirebaseStorage.getInstance();
+
     }
 
     @NonNull
@@ -40,6 +45,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
         Category category = categories.get(position);
         holder.categoryName.setText(category.getName());
+
+//        storage.getReference(category.getImageUrl())
+//                .getDownloadUrl()
+//                .addOnSuccessListener(uri -> {
+//
+//                    //Log.i("LoadImages",uri.toString());
+//
+//                    Glide.with(holder.itemView.getContext())
+//                            .load(uri)
+//                            .centerCrop()
+//                            .into(holder.categoryImage);
+//                });
+
         // Load image using a library like Glide
         Glide.with(holder.itemView.getContext())
                 .load(category.getImageUrl())
