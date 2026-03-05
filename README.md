@@ -276,3 +276,26 @@ Today's major milestone was the successful integration of a third-party payment 
 * **Updated Logic**: `CheckoutFragment.java` (PayHere SDK integration, order saving, and cart clearing logic)
 * **Updated Models**: `Order.java` (Integrated Firebase Timestamp)
 * **Updated Layouts**: `fragment_checkout.xml` (Finalized UI bindings for the payment trigger)
+
+##
+## Day 13 Progress (2026-03-02)
+
+Today's focus was on handling media assets by integrating Firebase Storage. The primary implementation was enabling dynamic profile picture uploads and configuring the app to serve category and product images directly from cloud storage.
+
+### ✨ Features Implemented
+* **Firebase Storage Integration**:
+  * Successfully integrated the `firebase-storage` dependency into the project (`build.gradle` and `libs.versions.toml`) to securely store and serve user-generated and app-level media.
+  * Updated the `CategoryAdapter` to initialize Firebase Storage, laying the groundwork for fetching dynamic category images directly from the cloud bucket.
+* **Profile Picture Upload Flow**:
+  * Implemented an `ActivityResultLauncher` in the `MainActivity` to allow users to securely browse and select images from their device's local gallery using `Intent.ACTION_PICK`.
+  * Built the upload logic to push the selected image to a dedicated `profile-images/` folder in Firebase Storage, using unique UUIDs to prevent file overwriting.
+* **Real-time Database Sync & UI Update**:
+  * Upon a successful upload, the app automatically retrieves the download URL and updates the specific user's document in the Firestore `users` collection.
+  * Integrated the Glide library to instantly fetch and display the newly uploaded profile picture inside the custom circular `ShapeableImageView` in the side navigation header.
+* **App Configuration**:
+  * Registered the `MapsActivity` within the `AndroidManifest.xml`, setting up the required configurations for upcoming location and map-based features.
+
+### 📁 Key Files Created/Updated
+* **Updated Logic**: `MainActivity.java` (Added gallery intent, Firebase Storage upload, and Firestore sync logic)
+* **Updated Adapters**: `CategoryAdapter.java` (Added Firebase Storage instance initialization)
+* **Configuration Files**: Updated `build.gradle`, `libs.versions.toml` (Dependencies), and `AndroidManifest.xml` (Activity registration).
